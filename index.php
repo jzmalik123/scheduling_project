@@ -1,9 +1,10 @@
 <?php
 include_once "header.php";
+requireLogin();
 ?>
 <div class="body">
   <div class="container">
-    <h2 class="text-center">View Meeting</h2>
+    <h2 class="text-center">My Meetings</h2>
     <a href="create.php"><button class="btn-input">Add New</button></a>
     <table border="1">
       <thead>

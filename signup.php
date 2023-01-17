@@ -1,5 +1,6 @@
 <?php
 include_once "header.php";
+checkLogin();
 ?>
 
 <div class="body">
@@ -50,13 +51,13 @@ if (isset($_POST['submit'])) {
   #date_default_timezone_set("Aisa/Karachi");
 
   global $db;
-  $sql = "update meetings set username='$username', email='$email', earliest_time='$earliest_time', latest_time='$latest_time', timezone='$timezone', password='$password', updated_at='$update_at'";
+
   $sql = "INSERT INTO users (username, email, password, earliest_time, latest_time, timezone) VALUES ('$username', '$email', '$password', '$earliest_time', '$latest_time', '$timezone')";
-  
+
   $result = mysqli_query($db, $sql);
   if ($result) {
     sendSignupEmail($email);
-    echo "<script>window.location.href='index.php'
+    echo "<script>window.location.href='login.php'
 		alert('Data update successfully')</script>";
   } else {
     echo "<script>alert('Sorry')</script>";

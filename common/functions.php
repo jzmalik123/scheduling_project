@@ -1,10 +1,13 @@
 <?php
+session_start();
 $db = mysqli_connect('www.local.pakwheels:3306', 'root', '', 'meetings');
 
-$current_user = null;
+$current_user = count($_SESSION) > 0 ? $_SESSION['current_user'] : null;
+
 function userLoggedIn()
 {
-  return true;
+  global $current_user;
+  return $current_user !== null;
 }
 
 function sendSignupEmail($email)
@@ -33,4 +36,24 @@ function select_Timezone($selected = '')
   return $select;
 }
 
+function showAlert($message)
+{
+  echo "<script>alert('$message');</script>";
+}
+
+function redirectToRoot()
+{
+  header('Location: index.php');
+}
+
+function requireLogin(){
+  if(!userLoggedIn())
+    header('Location: login.php');
+}
+
+function checkLogin()
+{
+  if(userLoggedIn())
+    header('Location: index.php');
+}
 ?>
