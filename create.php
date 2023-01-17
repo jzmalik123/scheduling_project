@@ -49,9 +49,9 @@ if (isset($_POST['submit'])) {
 	date_default_timezone_set("Aisa/Karachi");
 	$created_at = date('Y-m-d');
 	$update_at = date('Y-m-d');
-	global $con;
+	global $db;
 	$sql = "insert into meetings values('','$title','$description','$start_time','$duration','$status','$password','$created_at','$update_at')";
-	$result = mysqli_query($con, $sql);
+	$result = mysqli_query($db, $sql);
 	if ($result) {
 		echo "<script>window.location.href='index.php'
 		alert('Data insert successfully')</script>";

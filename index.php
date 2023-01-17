@@ -23,9 +23,9 @@ include_once "header.php";
       <tbody>
         <?php
         $i = 1;
-        global $con;
+        global $db;
         $sql = "select * from meetings";
-        $result = mysqli_query($con, $sql);
+        $result = mysqli_query($db, $sql);
         while ($row = mysqli_fetch_array($result)) {
           ?>
           <tr>

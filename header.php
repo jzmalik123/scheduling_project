@@ -1,3 +1,4 @@
+<?php require_once('common/functions.php'); ?>
 <!doctype html>
 <html>
 
@@ -24,6 +25,3 @@
 
     </div>
   </div>
-
-
-  <?php $con = mysqli_connect('www.local.pakwheels:3306', 'root', '', 'meetings'); ?>

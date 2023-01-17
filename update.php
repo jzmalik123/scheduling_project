@@ -10,9 +10,9 @@ include_once "header.php";
 				<h2 class="text-center pt-3">Update Meeting</h2>
 				<?php
 				$id = $_REQUEST['id'];
-				global $con;
+				global $db;
 				$sql = "select * from meetings where id='$id'";
-				$result = mysqli_query($con, $sql);
+				$result = mysqli_query($db, $sql);
 				$row = mysqli_fetch_array($result);
 				?>
 				<form method="post">
@@ -58,9 +58,9 @@ if (isset($_POST['submit'])) {
 	$password = $_POST['password'];
 	date_default_timezone_set("Aisa/Karachi");
 	$update_at = date('Y-m-d');
-	global $con;
+	global $db;
 	$sql = "update meetings set title='$title', description='$description', start_time='$start_time', duration='$duration', status='$status', password='$password', updated_at='$update_at' where id='$id'";
-	$result = mysqli_query($con, $sql);
+	$result = mysqli_query($db, $sql);
 	if ($result) {
 		echo "<script>window.location.href='index.php'
 		alert('Data update successfully')</script>";
